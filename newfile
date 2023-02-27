@@ -1,0 +1,65 @@
+# define the list
+my_list = [5, 2, 8, 3, 9, 1]
+
+# define the functions
+def sum_list(lst):
+    total = 0
+    for num in lst:
+        total += num
+    return total
+
+def push_list(lst, element):
+    lst.append(element)
+
+def pop_list(lst):
+    if len(lst) == 0:
+        return "List is empty"
+    else:
+        return lst.pop()
+
+def sort_list(lst):
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            if lst[i] > lst[j]:
+                lst[i], lst[j] = lst[j], lst[i]
+
+def find_common(lst1, lst2):
+    common = []
+    for element in lst1:
+        if element in lst2 and element not in common:
+            common.append(element)
+    return common
+
+def find_max(lst):
+    max = lst[0]
+    for element in lst:
+        if element > max:
+            max = element
+    return max
+
+def find_min(lst):
+    min = lst[0]
+    for element in lst:
+        if element < min:
+            min = element
+    return min
+
+# test the functions
+print("Original List:", my_list)
+
+print("Sum of the List:", sum_list(my_list))
+
+push_list(my_list, 6)
+print("After Pushing 6:", my_list)
+
+pop_list(my_list)
+print("After Popping Element:", my_list)
+
+sort_list(my_list)
+print("Sorted List:", my_list)
+
+my_list2 = [2, 5, 7, 1, 9]
+print("Common Elements:", find_common(my_list, my_list2))
+
+print("Maximum Element:", find_max(my_list))
+print("Minimum Element:", find_min(my_list))
